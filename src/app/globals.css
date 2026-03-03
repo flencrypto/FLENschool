@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f0f4ff;
+  --foreground: #1a1a2e;
+  --primary: #4f46e5;
+  --secondary: #f97316;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --surface: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+.high-contrast {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffff00;
+  --secondary: #ff6600;
+  --surface: #1a1a1a;
+}
+
+.dyslexia-font {
+  font-family: 'OpenDyslexic', Arial, sans-serif;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* Focus mode overlay */
+.focus-mode-active .non-focus {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Session timer pulse animation */
+@keyframes pulse-timer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.timer-warning {
+  animation: pulse-timer 1s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--progress-width); }
+}
+
+.progress-animated {
+  animation: progress-fill 0.5s ease-out forwards;
+}
+
+/* Badge unlock animation */
+@keyframes badge-unlock {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  70% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.badge-unlocked {
+  animation: badge-unlock 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Points bounce */
+@keyframes points-bounce {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-20px); opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+.points-float {
+  animation: points-bounce 1s ease-out forwards;
+}
