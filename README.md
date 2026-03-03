@@ -1,6 +1,6 @@
 # FLENschool
 
-An ADHD-friendly GCSE learning platform built with Next.js 14, TypeScript, and Tailwind CSS.
+An ADHD-friendly GCSE learning platform built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Tech Stack
 
-- **Next.js 14** (App Router)
+- **Next.js 15** (App Router)
 - **TypeScript**
 - **Tailwind CSS**
 - **Jest** + **React Testing Library**

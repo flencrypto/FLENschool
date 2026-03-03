@@ -5,16 +5,18 @@ import ProgressBar from '@/components/ProgressBar';
 import { notFound } from 'next/navigation';
 
 interface Props {
-  params: { subjectId: string };
+  params: Promise<{ subjectId: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const subject = subjects.find((s) => s.id === params.subjectId);
+  const { subjectId } = await params;
+  const subject = subjects.find((s) => s.id === subjectId);
   return { title: subject ? `${subject.name} - FLENschool` : 'Subject - FLENschool' };
 }
 
-export default function SubjectPage({ params }: Props) {
-  const subject = subjects.find((s) => s.id === params.subjectId);
+export default async function SubjectPage({ params }: Props) {
+  const { subjectId } = await params;
+  const subject = subjects.find((s) => s.id === subjectId);
   if (!subject) notFound();
 
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import PointsBadge from '@/components/PointsBadge';
 import BadgeCard from '@/components/BadgeCard';
 import LeaderboardWidget from '@/components/LeaderboardWidget';
@@ -46,7 +47,7 @@ export default function HomePage() {
         <div className="md:col-span-2">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-bold text-gray-800">Quick Start 🚀</h2>
-            <a href="/subjects" className="text-purple-600 font-semibold hover:underline">View all →</a>
+            <Link href="/subjects" className="text-purple-600 font-semibold hover:underline">View all →</Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {featuredSubjects.map((subject) => (

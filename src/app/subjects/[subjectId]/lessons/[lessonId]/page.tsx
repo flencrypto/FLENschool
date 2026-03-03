@@ -1,19 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { subjects } from '@/data/subjects';
 import QuizQuestion from '@/components/QuizQuestion';
 import { notFound } from 'next/navigation';
 
 interface Props {
-  params: { subjectId: string; lessonId: string };
+  params: Promise<{ subjectId: string; lessonId: string }>;
 }
 
 export default function LessonPage({ params }: Props) {
   const router = useRouter();
-  const subject = subjects.find((s) => s.id === params.subjectId);
-  const lesson = subject?.topics.flatMap((t) => t.lessons).find((l) => l.id === params.lessonId);
+  const { subjectId, lessonId } = use(params);
+  const subject = subjects.find((s) => s.id === subjectId);
+  const lesson = subject?.topics.flatMap((t) => t.lessons).find((l) => l.id === lessonId);
 
   if (!subject || !lesson) notFound();
 
