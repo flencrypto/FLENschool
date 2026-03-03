@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getSubject, getTopic } from "@/data/curriculum";
 import { getQuiz } from "@/data/quizzes";
 import QuizComponent from "@/components/QuizComponent";
+import AiVideoPanel from "@/components/AiVideoPanel";
 import {
   loadProgress,
   saveProgress,
@@ -161,19 +162,13 @@ export default function TopicPage({
               </div>
             </div>
 
-            {/* Video placeholder */}
-            <div className="bg-gray-900 rounded-2xl p-8 mb-4 text-center text-white border border-gray-700">
-              <div className="text-5xl mb-3">▶️</div>
-              <p className="font-semibold text-base">
-                Lesson Video: {topic.title}
-              </p>
-              <p className="text-gray-400 text-sm mt-1">
-                Short explainer video (~{Math.min(topic.estimatedMinutes, 10)} min) with captions
-              </p>
-              <p className="text-xs text-gray-600 mt-2">
-                (Video content would be embedded here in production)
-              </p>
-            </div>
+            {/* AI Video Panel */}
+            <AiVideoPanel
+              topicTitle={topic.title}
+              subjectTitle={subject.title}
+              learningObjectives={topic.learningObjectives}
+              estimatedMinutes={topic.estimatedMinutes}
+            />
 
             {/* Start quiz CTA */}
             {quiz && (

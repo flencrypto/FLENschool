@@ -7,6 +7,7 @@ import SubjectCard from "@/components/SubjectCard";
 import BadgeDisplay from "@/components/BadgeDisplay";
 import SessionTimer from "@/components/SessionTimer";
 import BreakReminder from "@/components/BreakReminder";
+import GrokApiSetup from "@/components/GrokApiSetup";
 import {
   loadProgress,
   saveProgress,
@@ -169,6 +170,9 @@ export default function HomePage() {
               >
                 📊 Parent/Teacher Dashboard
               </Link>
+              <div className="border-t border-gray-100 pt-3">
+                <GrokApiSetup />
+              </div>
             </div>
           </div>
         </div>
@@ -330,10 +334,16 @@ export default function HomePage() {
                 📊 Parent/Teacher Dashboard
               </Link>
               <Link
-                href="/subjects/computing"
+                href="/ai-lab"
                 className="flex items-center gap-2 text-sm text-gray-700 hover:text-indigo-600 transition-colors font-medium"
               >
-                🤖 Prompt Engineering Lab
+                🤖 AI Prompt Lab
+              </Link>
+              <Link
+                href="/subjects/blockchain"
+                className="flex items-center gap-2 text-sm text-gray-700 hover:text-indigo-600 transition-colors font-medium"
+              >
+                ⛓️ Blockchain & Crypto
               </Link>
             </div>
           </div>

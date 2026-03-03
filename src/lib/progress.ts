@@ -110,6 +110,22 @@ export const BADGES: Badge[] = [
     icon: "💻",
     condition: (p) => p.completedTopics.some((t) => t.startsWith("cs-")),
   },
+  {
+    id: "crypto-explorer",
+    name: "Crypto Explorer",
+    description: "Complete a Blockchain & Crypto topic",
+    icon: "⛓️",
+    condition: (p) => p.completedTopics.some((t) => t.startsWith("blockchain-")),
+  },
+  {
+    id: "ai-pioneer",
+    name: "AI Pioneer",
+    description: "Complete both Prompt Engineering and NLP App Creation",
+    icon: "🤖",
+    condition: (p) =>
+      p.completedTopics.includes("cs-prompt-engineering") &&
+      p.completedTopics.includes("cs-nlp-app-creation"),
+  },
 ];
 
 export const LEVEL_THRESHOLDS = [0, 50, 150, 300, 500, 750, 1000, 1500, 2000, 3000];
