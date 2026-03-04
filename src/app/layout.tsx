@@ -1,30 +1,24 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import Navigation from "@/components/Navigation";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+import type { Metadata } from 'next';
+import './globals.css';
+import Navigation from '@/components/Navigation';
 
 export const metadata: Metadata = {
-  title: "FLENschool – ADHD-Friendly GCSE Learning",
-  description:
-    "An engaging, ADHD-friendly platform covering all GCSE subjects with gamification, microlearning, spaced repetition, and adaptive assessments.",
+  title: 'FLENschool - ADHD-Friendly GCSE Learning',
+  description: 'An ADHD-friendly educational platform for GCSE students',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased bg-gray-50 min-h-screen font-sans`}>
+      <body className="bg-gray-50 min-h-screen font-sans">
         <Navigation />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">{children}</main>
+        <main className="max-w-6xl mx-auto px-4 py-8">
+          {children}
+        </main>
       </body>
     </html>
   );
