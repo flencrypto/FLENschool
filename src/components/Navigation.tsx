@@ -15,13 +15,13 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-purple-700 font-bold text-xl">
           <span>🎓</span>
           <span>FLENschool</span>
         </Link>
-        <div className="flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -33,12 +33,15 @@ export default function Navigation() {
               }`}
             >
               <span>{link.icon}</span>
-              <span className="hidden md:inline">{link.label}</span>
+              <span>{link.label}</span>
             </Link>
           ))}
           <div className="ml-3 w-9 h-9 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold cursor-pointer">
             😊
           </div>
+        </div>
+        <div className="md:hidden w-9 h-9 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold cursor-pointer">
+          😊
         </div>
       </div>
     </nav>

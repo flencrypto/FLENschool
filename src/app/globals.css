@@ -18,6 +18,37 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  /* Prevent iOS text size adjustment on orientation change */
+  -webkit-text-size-adjust: 100%;
+  /* Enable momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* iOS safe area padding for content that sits behind the notch */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Prevent overscroll bounce background flash on iOS */
+html {
+  background-color: #f9fafb;
+}
+
+/* Remove tap highlight on iOS */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve touch target size on mobile (Apple HIG recommends 44×44 pt minimum) */
+@media (max-width: 768px) {
+  button, a {
+    display: inline-block;
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 @layer utilities {
